@@ -1,6 +1,30 @@
 # Trivial smart contract that will run in IBM Hyperledger Fabric V0.6 
 A trivial smart contract using HLF v 0.6. 
 
+## Register user request
+User id and secret would be available in the membersrvc.yaml file.
+membersrvc.yaml should be copied using the following command 
+
+```
+docker cp <container id>:/opt/gopath/src/github.com/hyperledger/fabric/membersrvc/membersrvc.yaml .
+
+```
+Container id could be found using the command
+
+```
+
+docker ps
+
+```
+Register using the following json request
+
+```
+{
+ "enrollId": "<<user id for your chain code peer >>",
+ "enrollSecret": "<<User secret>>"
+}
+
+```
 ## Deployment request 
 ```
 {
@@ -45,7 +69,7 @@ With the following invoke , we will send 100 to store against sudip. As per the 
  "method": "invoke",
  "params": {
    "type": 1,
-   "chaincodeID":{ "name":"<<Your chain code>>"
+   "chaincodeID":{ "name":"<<Your chain code hash>>"
     },
    "ctorMsg": {
        
@@ -64,7 +88,7 @@ With the following invoke , we will send 100 to store against sudip. As per the 
 
 ```
 ## Query example
-To query what is stored again Sudip
+To query what is stored against SUDIP
 
 ```
 {
@@ -90,6 +114,12 @@ To query what is stored again Sudip
 
 
 ```
+Above query should result the following output
 
+```
+
+{"jsonrpc":"2.0","result":{"status":"OK","message":"990"},"id":1}
+
+```
 
 
