@@ -1,4 +1,4 @@
-# Trivial smart contract that will run in IBM Hyperledger Fabric V0.6 
+#  Trivial smart contract that will run in IBM Hyperledger Fabric V0.6 
 A trivial smart contract using HLF v 0.6. 
 
 ## Register user request
